@@ -1,0 +1,39 @@
+:root {
+    /* Primary */
+    --pale-blue: hsl(225, 100%, 94%);
+    --bright-blue: hsl(245, 75%, 52%);
+
+    /* Neutral */
+    --very-pale-blue: hsl(225, 100%, 98%);
+    --desaturated-blue: hsl(224, 23%, 55%);
+    --dark-blue: hsl(223, 47%, 23%);
+
+    /* Footer */
+    --footer-text: hsl(228, 45%, 44%);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.attribution {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 11px;
+    text-align: center;
+
+    & a {
+        color: var(--footer-text);
+    }
+}
