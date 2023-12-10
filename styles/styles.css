@@ -2,27 +2,190 @@
     /* Primary */
     --pale-blue: hsl(225, 100%, 94%);
     --bright-blue: hsl(245, 75%, 52%);
+    --bright-blue-shadow-11: hsl(245, 75%, 52%, 0.11);
+    --bright-blue-shadow-25: hsl(245, 75%, 52%, 0.25);
 
     /* Neutral */
     --very-pale-blue: hsl(225, 100%, 98%);
     --desaturated-blue: hsl(224, 23%, 55%);
     --dark-blue: hsl(223, 47%, 23%);
+    --white: hsl(0, 0%, 100%);
 
     /* Footer */
     --footer-text: hsl(228, 45%, 44%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     font-size: 62.5%;
 }
 
-body {
-    font-family: 'Hanken Grotesk', sans-serif;
-}
-
 img {
     max-width: 100%;
     display: block;
+}
+
+body {
+    font-family: 'Hanken Grotesk', sans-serif;
+    background: url('../images/pattern-background-desktop.svg'), var(--pale-blue);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 2.5rem 0 var(--bright-blue-shadow-11);
+    margin: 0 1.5rem;
+    max-width: 37.5rem;
+}
+
+.card-header img {
+    height: auto;
+}
+
+.card-body {
+    .title {
+        color: var(--dark-blue);
+        font-size: 2.4rem;
+        font-weight: 900;
+        padding: 2.5rem 0;
+    }
+
+    .text {
+        color: var(--desaturated-blue);
+        line-height: 1.4;
+        font-size: 1.6rem;
+        padding: 0 3rem;
+    }
+
+    .plan-container {
+        background-color: var(--very-pale-blue);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+        margin: 2.5rem;
+        border-radius: 1rem;
+    }
+
+    .plan-left {
+        display: flex;
+        align-items: center;
+
+        & img {
+            height: 4.5rem;
+            margin-right: 1.5rem;
+        }
+    }
+
+    .plan-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+
+        & .plan-name {
+            color: var(--dark-blue);
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        & .plan-price {
+            color: var(--desaturated-blue);
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+    }
+
+    .plan-btn a {
+        color: var(--bright-blue);
+        font-size: 1.4rem;
+        font-weight: 700;
+        opacity: 1;
+        transition: all .2s ease;
+
+        &:hover {
+            opacity: .7;
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: 3px dotted var(--desaturated-blue);
+
+            &:not(:focus-visible) {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 3px dotted var(--desaturated-blue);
+            }
+        }
+    }
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin: 2.5rem;
+
+    & .btn {
+        all: unset;
+        display: block;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 1.5rem;
+
+        &:focus {
+            outline: 3px dashed var(--desaturated-blue);
+
+            &:not(:focus-visible) {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 3px dashed var(--desaturated-blue);
+            }
+        }
+
+        &.success-btn {
+            background-color: var(--bright-blue);
+            color: var(--very-pale-blue);
+            box-shadow: 0 1.5rem 2rem 0 var(--bright-blue-shadow-25);
+            opacity: 1;
+            transition: all .2s ease;
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+
+        &.cancel-btn {
+            color: var(--desaturated-blue);
+            transition: all .2s ease;
+        }
+
+        &.cancel-btn:hover {
+            color: var(--dark-blue);
+        }
+    }
 }
 
 .attribution {
